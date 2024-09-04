@@ -1,0 +1,110 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #cabada;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 50px;
+  position: relative;
+  .number {
+    position: absolute;
+    inset: 35px;
+    border-radius: 50%;
+    background-color: #2b2a81;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.151);
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 25px;
+      background: linear-gradient(#2196f3, #e91e63);
+      border-radius: 50%;
+      animation: animate 2s linear infinite;
+    }
+    @keyframes animate {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 30px;
+      background-color: #2b2a81;
+      border-radius: 50%;
+    }
+    span {
+      position: absolute;
+      inset: 5px;
+      text-align: center;
+      color: #fff;
+      border-radius: 50%;
+      transform: rotate(calc(90deg * var(--i)));
+      b {
+        font-weight: 600;
+        display: inline-block;
+        transform: rotate(calc(-90deg * var(--i)));
+      }
+    }
+  }
+  .hand {
+    position: absolute;
+    border-radius: 50%;
+    inset: 35px;
+    .hr {
+      position: absolute;
+      border-radius: 50%;
+      inset: 35px;
+      &::before {
+        width: 7px;
+        height: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translatey(-100%);
+        background-color: #fff;
+        clip-path: polygon(47% 0, 53% 0, 100% 100%, 0% 100%);
+        z-index: 11;
+      }
+    }
+    .min {
+        position: absolute;
+        border-radius: 50%;
+        inset: 35px;
+      &::before {
+        width: 5px;
+        height: 35%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translatey(-100%);
+        background-color: #fff;
+        clip-path: polygon(47% 0, 53% 0, 100% 100%, 0% 100%);
+        z-index: 12;
+      }
+    }
+    .sec {
+        position: absolute;
+        border-radius: 50%;
+        inset: 35px;
+      &::before {
+        width: 3px;
+        height: 40%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translatey(-100%);
+        background-color: #fff;
+        clip-path: polygon(47% 0, 53% 0, 100% 100%, 0% 100%);
+        z-index: 13;
+      }
+    }
+  }
+}
